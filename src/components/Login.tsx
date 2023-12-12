@@ -31,7 +31,7 @@ function Login(Props: PropType) {
         disabled={ isUnavailable }
         onClick={ () => login(identification) }
       >
-        Entrar agora
+        Entrar
       </button>
     </form>
   );

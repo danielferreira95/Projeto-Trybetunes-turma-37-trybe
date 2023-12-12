@@ -5,19 +5,19 @@ import { createUser } from './services/userAPI';
 import Fill from './components/Fill';
 
 function App() {
-  const [loading, setLoading] = useState<boolean>(false);
+  const [fillling, setFilling] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const login = async (userName: string) => {
-    setLoading(true);
+    setFilling(true);
     await createUser({ name: userName });
-    setLoading(false);
+    setFilling(false);
     navigate('/search');
   };
 
   return (
     <Routes>
-      <Route path="/" element={ loading ? <Fill /> : <Login login={ login } /> } />
+      <Route path="/" element={ fillling ? <Fill /> : <Login login={ login } /> } />
     </Routes>
   );
 }
