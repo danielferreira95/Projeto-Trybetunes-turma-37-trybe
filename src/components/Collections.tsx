@@ -24,7 +24,7 @@ function Collections() {
       }
     };
     fetchData();
-  });
+  }, [id]);
 
   return (
     <div>
