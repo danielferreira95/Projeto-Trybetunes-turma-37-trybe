@@ -32,7 +32,7 @@ function App() {
       <Route path="/" element={ filling ? <Fill /> : <Login login={ login } /> } />
       <Route
         path="/search"
-        element={ <Hunt search={ hunt } albums={ collections } loading={ false } /> }
+        element={ <Hunt search={ hunt } albums={ collections } loading={ filling } /> }
       />
       <Route path="/collections/:id" element={ <Collections /> } />
     </Routes>

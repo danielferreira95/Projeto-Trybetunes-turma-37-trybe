@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Fill from './Fill';
 import getMusics from '../services/musicsAPI';
@@ -48,5 +48,4 @@ function Collections() {
     </div>
   );
 }
-
 export default Collections;
