@@ -21,7 +21,9 @@ function App() {
   };
 
   const hunt = async (artist: string) => {
+    setFilling(true);
     const collectionsData = await searchAlbumsAPI(artist);
+    setFilling(false);
     setCollections(collectionsData);
   };
 
