@@ -1,6 +1,6 @@
-function Fill() {
+function Loading() {
   return (
     <h1>Carregando...</h1>
   );
 }
-export default Fill;
+export default Loading;

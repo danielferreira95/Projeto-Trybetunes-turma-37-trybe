@@ -1,21 +1,21 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 
-type PropType = {
-  login: (b: string) => void
+type Kind = {
+  signIn: (m: string) => void
 };
 
-function Login(Props: PropType) {
-  const { login } = Props;
-  const [identification, setIdentification] = useState<string>('');
-  const [isUnavailable, setIsUnavailable] = useState<boolean>(true);
+function Login(Pr: Kind) {
+  const { signIn } = Pr;
+  const [client, setClient] = useState<string>('');
+  const [isToggleOff, setIsToggleOff] = useState<boolean>(true);
 
   const playSwitch = (event: ChangeEvent<HTMLInputElement>) => {
-    setIdentification(event.target.value);
+    setClient(event.target.value);
   };
 
   useEffect(() => {
-    setIsUnavailable(identification.length < 3);
-  }, [identification]);
+    setIsToggleOff(client.length < 3);
+  }, [client]);
 
   return (
     <form>
@@ -24,12 +24,12 @@ function Login(Props: PropType) {
         name="name"
         data-testid="login-name-input"
         onChange={ playSwitch }
-        value={ identification }
+        value={ client }
       />
       <button
         data-testid="login-submit-button"
-        disabled={ isUnavailable }
-        onClick={ () => login(identification) }
+        disabled={ isToggleOff }
+        onClick={ () => signIn(client) }
       >
         Entrar
       </button>

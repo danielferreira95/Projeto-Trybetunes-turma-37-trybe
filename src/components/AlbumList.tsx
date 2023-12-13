@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { AlbumType } from '../types';
 
-type PropType = {
+type Kinds = {
   artistName: string,
   albumList: AlbumType[] | null,
 };
 
-function CollectionList(Props: PropType) {
-  const { artistName, albumList } = Props;
+function AlbumList(Pr: Kinds) {
+  const { artistName, albumList } = Pr;
   return (
     <div>
       { albumList?.length === 0
@@ -16,17 +16,17 @@ function CollectionList(Props: PropType) {
           <div>
             <h1>{ `Resultado de álbuns de: ${artistName}` }</h1>
             <ul>
-              { albumList?.map((album) => (
-                <li key={ album.collectionId }>
+              { albumList?.map((record) => (
+                <li key={ record.collectionId }>
                   <Link
-                    data-testid={ `link-to-album-${album.collectionId}` }
-                    to={ `/album/${album.collectionId}` }
+                    data-testid={ `link-to-album-${record.collectionId}` }
+                    to={ `/album/${record.collectionId}` }
                   >
-                    {album.collectionName}
+                    {record.collectionName}
                   </Link>
                   <img
-                    src={ album.artworkUrl100 }
-                    alt={ `capa do disco ${album.collectionName}` }
+                    src={ record.artworkUrl100 }
+                    alt={ `Frente do album ${record.collectionName}` }
                   />
                 </li>))}
             </ul>
@@ -35,4 +35,4 @@ function CollectionList(Props: PropType) {
   );
 }
 
-export default CollectionList;
+export default AlbumList;
